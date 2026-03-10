@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #020617; /* Noir bleuté profond */
+  --foreground: #f8fafc;
+  --accent: #10b981;    /* Vert Émeraude (Fraîcheur) */
+  --admin-gold: #f59e0b; /* Ambre pour la partie Admin/Gestion */
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  /* Lueur "Aube au potager" en arrière-plan */
+  background-image: 
+    radial-gradient(circle at 50% -20%, #064e3b 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, #022c22 0%, transparent 30%);
+  background-attachment: fixed;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Texture organique subtile */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app");
+  opacity: 0.03;
+  z-index: 50;
+  pointer-events: none;
+}
+
+@layer components {
+  /* SECTION PANIER & CARTES PRODUITS */
+  .cart-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* BOUTON "COMMANDER" (Appel à l'action puissant) */
+  .btn-order {
+    @apply bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-emerald-900/40;
+    transition: transform 0.2s;
+  }
+  .btn-order:hover { transform: scale(1.05); }
+
+  /* SECTION ADMIN / DASHBOARD */
+  .admin-panel {
+    @apply bg-slate-900/80 border-l-4 border-amber-500 rounded-r-xl p-4;
+  }
+}
+
+/* Style des légumes : Ombre portée pour les faire ressortir du fond sombre */
+img {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+}
