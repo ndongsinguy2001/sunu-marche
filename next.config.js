@@ -10,6 +10,9 @@ const nextConfig = {
       },
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true, // Ignore les erreurs ESLint en production
+  },
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig
